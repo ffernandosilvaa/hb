@@ -3,14 +3,16 @@
 ![Status](https://img.shields.io/badge/Status-Ativo-brightgreen?style=for-the-badge)
 
 ### 📊 Status do Jogador
-> **Nota:** Os valores abaixo são atualizados no `habitos.json` a cada Check-in.
-
-| Atributo | Nível |
+| Atributo | Valor |
 | :--- | :--- |
-| **Nível** | ![Level](https://img.shields.io/badge/Dinâmico-1-blueviolet) |
-| **Hábito** | Academia 🏋️ |
+| **Nível** | ![Level](https://img.shields.io/badge/Level-1-blueviolet?style=flat-square) |
+| **XP Total** | 0 |
+
+### 🎯 Missões Diárias
+| Hábito | XP | Status |
+| :--- | :--- | :--- |
+| Academia | 10 | ⬜ |
+
 
 ---
-
-### 🕹️ Comandos de Check-in
-Para ganhar XP, use a aba [Ações](https://github.com/ffernandosilvaa/hb/actions).
+*Atualizado em: 29/03/2026 17:39*
