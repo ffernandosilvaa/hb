@@ -1,0 +1,17 @@
+name: Check-in
+on: workflow_dispatch
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v3
+      - name: XP Up
+        run: python marca.py 1
+      - name: Save
+        run: |
+          git config user.name "HabitBot"
+          git config user.email "bot@github.com"
+          git add habitos.json
+          git commit -m "Level Up"
+          git push
