@@ -14,3 +14,4 @@
 
 ### 🕹️ Comandos de Check-in
 Para ganhar XP, use a aba [Ações](https://github.com/ffernandosilvaa/hb/actions).
+* oi *
