@@ -1,0 +1,7 @@
+{
+  "user": { "level": 1, "xp": 0 },
+  "habits": [
+    { "id": 1, "name": "Academia", "xp_yield": 10, "history": [] },
+    { "id": 2, "name": "Violao", "xp_yield": 15, "history": [] }
+  ]
+}
