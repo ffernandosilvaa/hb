@@ -1,9 +1,13 @@
 import json, datetime, sys, math
 
+# Nome do arquivo exatamente como aparece no seu print
 file = 'habitats.json' 
 
 def carregar():
-    with open(file, 'r') as f: return json.load(f)
+    try:
+        with open(file, 'r') as f: return json.load(f)
+    except:
+        return {"user": {"level": 1, "xp": 0}, "habits": []}
 
 def salvar(data):
     with open(file, 'w') as f: json.dump(data, f, indent=2)
