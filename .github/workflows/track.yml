@@ -1,17 +1,39 @@
-name: Check-in
-on: workflow_dispatch
+name: Painel de Controle
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'O que deseja fazer?'
+        required: true
+        default: 'checkin'
+        type: choice
+        options:
+          - checkin
+          - adicionar_habito
+      id_ou_nome:
+        description: 'ID (para check-in) ou Nome (para novo hábito)'
+        required: true
+      xp_valor:
+        description: 'XP do novo hábito (apenas para adicionar)'
+        default: '10'
+
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v3
-      - name: XP Up
-        run: python marca.py 1
+      - name: Executar Logica
+        run: |
+          if [ "${{ github.event.inputs.action }}" == "checkin" ]; then
+            python marca.py ${{ github.event.inputs.id_ou_nome }}
+          else
+            python marca.py add "${{ github.event.inputs.id_ou_nome }}" ${{ github.event.inputs.xp_valor }}
+          fi
       - name: Save
         run: |
           git config user.name "HabitBot"
           git config user.email "bot@github.com"
-          git add habitos.json
-          git commit -m "Level Up"
+          git add .
+          git commit -m "Sistema Atualizado"
           git push
