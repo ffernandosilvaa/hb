@@ -1,14 +1,16 @@
 {
   "user": {
     "level": 1,
-    "xp": 0
+    "xp": 10
   },
   "habits": [
     {
       "id": 1,
       "name": "Academia",
       "xp_yield": 10,
-      "history": []
+      "history": [
+        "2026-03-29"
+      ]
     }
   ]
 }
