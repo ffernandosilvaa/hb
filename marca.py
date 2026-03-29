@@ -1,6 +1,6 @@
 import json, datetime, sys, math
 
-file = 'habitats.json' # Ajustado para o nome que vi no seu print
+file = 'habitats.json' 
 
 def carregar():
     with open(file, 'r') as f: return json.load(f)
@@ -12,10 +12,10 @@ def checkin(habit_id):
     data = carregar()
     today = str(datetime.date.today())
     for h in data['habits']:
-        if h['id'] == int(habit_id) and today not in h['history']:
+        if str(h['id']) == str(habit_id) and today not in h['history']:
             h['history'].append(today)
             data['user']['xp'] += h['xp_yield']
-            data['user']['level'] = math.floor(math.sqrt(data['user']['xp'] / 25)) + 1
+            data['user']['level'] = math.floor(data['user']['xp'] / 100) + 1
     salvar(data)
 
 def add_habito(nome, xp):
@@ -25,7 +25,8 @@ def add_habito(nome, xp):
     salvar(data)
 
 if __name__ == "__main__":
-    if sys.argv[1] == "add":
-        add_habito(sys.argv[2], sys.argv[3])
-    else:
-        checkin(sys.argv[1])
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "add":
+            add_habito(sys.argv[2], sys.argv[3])
+        else:
+            checkin(sys.argv[1])
